@@ -34,6 +34,7 @@ import org.junit.jupiter.api.Test;
  */
 @DisplayName("Bank system tests")
 public class BankTests {
+    double numeroContaMock = 12345;
     Banco banco;
 
     public BankTests() {
@@ -41,23 +42,19 @@ public class BankTests {
     }
 
     @Test
-    public void criacaoContaTest() {
-        this.criarBanco();
-        
+    public void criacaoContaTest() {        
         int numeroContaMock = 12345;
         double saldoInicialContaMock = 200.20;
         this.banco.criarConta(numeroContaMock, saldoInicialContaMock);
 
-        double saldoContaEspecifica = this.banco.obterSaldoContaPeloNumero(numeroContaMock);
+        double saldoContaEspecifica = this.banco.obterSaldoContaPeloNumero(this.numeroContaMock);
         assertEquals(saldoContaEspecifica, saldoInicialContaMock);
     }
 
     @Test
     public void consultaSaldoContaTest() {
-        
-    }
+        double saldoConta = this.banco.obterSaldoontaPeloNumero(this.numeroContaMock);
 
-    private void criarBanco() {
-        this.banco = new Banco();
+        
     }
 }
